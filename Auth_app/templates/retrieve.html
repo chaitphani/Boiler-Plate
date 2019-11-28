@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Page</title>
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/ios7-active-basic/512/list_text_document_book_schedule-512.png">
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+        <tr>
+            <th>S.no</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for vis in visible %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{vis.first_name}}</td>
+            <td>{{vis.last_name}}</td>
+            <td>{{vis.usrname}}</td>
+            <td>{{vis.email}}</td>
+            <td>{{vis.mobile}}</td>
+            <td>{{vis.password}}</td>
+            <td><a href="{% url 'updation' vis.pk %}">edit</a></td>
+            <td><a href="{% url 'deletion' vis.pk %}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table><br>
+    <big>U can<button><a href='login'> Login</a></button>Here or</big>
+    <small><button><a href='signup'>Register</a></button>here</small>
+    </form>
+<style>
+body{
+    background-image: url('https://wallpaperplay.com/walls/full/5/8/5/76997.jpg');
+    color:white;
+    background-size: cover;
+}
+link{
+    border-radius: 50%;
+}
+table, th, td {
+    border: 3px solid black;
+    font-display:inherit;
+}
+td{
+    color:teal
+}
+th{
+    color:yellow;
+    font-family: 'Times New Roman', Times, serif;
+}
+button{
+    background-color:transparent;
+    margin: 10px;
+    border: 2px solid ;
+    color:white;
+}
+big{
+    margin-left: 1160px;
+}
+small{
+    margin-left: 1200px;
+    margin-top: 50px;
+}
+a{
+    color:khaki;
+}
+</style>
+</body>
+</html>

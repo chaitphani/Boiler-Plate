@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOc0vuuDSYKf2rbi4HOnHFSw8mweJOZKDobVl0Rz4r8Nb2wE2z7A">
+    <title>Login page</title>
+</head>
+
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}" style="color: red">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class='container'>
+            <div class='col-md-5'>
+                <div class='row'>
+                    <i class="fa fa-user-circle-o"></i>&nbsp;
+                    <label>Username</label>
+                    <input class='form-control' type='usrname' name='usrname' title='Username'
+                        placeholder='Enter Username'>
+                </div>
+            </div>
+            <div class='col-md-4'>
+                <div class='row'>
+                    <i class="fa fa-key"></i>&nbsp;
+                    <label>Password</label>
+                    <input class='form-control' type='password' name='password' title='Password'
+                        placeholder='Enter Password'><br>
+                </div>
+            </div>
+            <div class='hat'>
+                <button class='btn btn-outline-info btn-block my-4'>LOGIN</button><br><br>
+                <hr>
+                <p>Don't have an account? &nbsp;<a href='{% url "signup" %}'>Sign up</a></p><br>
+                <i><small><a href="{% url 'forgot_password' %}">Can't Access your account ?</a></small></i>
+            </div>
+        </div>
+    </form>
+</body>
+
+<style>
+    body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRh0nZ2GoWiaRlKAIdIRPRww0ZfztCB0vfjYUNdj0fPCykGqH9k');
+        background-size: cover;
+        margin: 150px;
+    }
+
+    .col-md-5 {
+        margin: 25px;
+    }
+
+    label {
+        color: powderblue;
+    }
+
+    .col-md-4 {
+        margin: 25px;
+    }
+
+    .hat {
+        margin: 20px;
+    }
+
+    a {
+        font-family: sans-serif;
+        color: cornsilk;
+        text-decoration: underline;
+        text-decoration-color: cadetblue;
+        float: right;
+
+    }
+
+    a:hover {
+        color: bisque;
+    }
+
+    .btn-block {
+        display: block;
+        width: 10%;
+        border-radius: 19%;
+        color: snow;
+    }
+
+    [type=button]:not(:disabled),
+    [type=reset]:not(:disabled),
+    [type=submit]:not(:disabled),
+    button:not(:disabled) {
+        cursor: pointer;
+        float: right;
+        margin-right: 32%;
+    }
+
+    p {
+        margin-right: -10%;
+        color: paleturquoise;
+        float: right;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    small a {
+        margin-right: -24%;
+        margin-top: 2%;
+    }
+
+    .fa {
+        color: thistle;
+        margin-top: 3.5px;
+    }
+
+    .btn-outline-info {
+        font-family: Raleway-SemiBold;
+        font-size: 13px;
+        border: 1.6px solid rgba(248, 234, 30, 0.849);
+        border-radius: 40px;
+        background: transparent;
+        transition: all 0.3s ease 0s;
+    }
+</style>
+
+</html>

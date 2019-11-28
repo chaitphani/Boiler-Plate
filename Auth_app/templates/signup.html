@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="signup.css"> -->
+    <link rel="icon" href="https://www.icate.org/wp-content/uploads/2018/10/registration-icon.png">
+    <title>SignUp</title>
+</head>
+
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{{ message.tags }}" style="color: red">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form method="POST" onSubmit = "return checkPassword(this)">
+        {% csrf_token %}
+        <!-- {{form|crispy}}
+        <input type="submit" name='submit' value="submit"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    <h3>Welcome</h3>
+                    <p>Already a User Get-In from Here</p>
+                    <small><a href='login' btn-md' id='id_login' name='login' title='login' />Login</a></small>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="id_first_name" class="col-form-label  requiredField">
+                                        First name<span class="asteriskField">*</span> </label>
+                                    <input type="text" name="first_name" maxlength="120"
+                                        class="textinput textInput form-control" required id="id_first_name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_last_name" class="col-form-label  requiredField">
+                                        Last name</label>
+                                    <input type="text" name="last_name" maxlength="120"
+                                        class="textinput textInput form-control" id="id_last_name">
+                                </div>
+                                <div class="col-md-8"><i class="fa fa-user-o"></i>
+                                    <label for="id_usrname" class="col-form-label  requiredField">
+                                        User Name<span class="asteriskField">*</span> </label>
+                                    <input type="text" name="usrname" maxlength="120"
+                                        class="textinput textInput form-control" required id="id_usrname">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row"><br>
+                                <div class="col-md-7"><i class="fa fa-at"></i>
+                                    <label for="id_email" class="col-form-label  requiredField">
+                                        Email<span class="asteriskField">*</span> </label>
+                                    <input type="email" name="email" maxlength="254" class="emailinput form-control"
+                                        required id="id_email">
+                                </div>
+                                <div class="col-md-5"><i class="fa fa-mobile-phone"></i>
+                                    <label for="id_mobile" class="col-form-label  requiredField">
+                                        Mobile<span class="asteriskField">*</span> </label>
+                                    <input type="number" name="mobile" class="numberinput form-control" required
+                                        id="id_mobile">
+                                </div>
+                            </div>
+                            <!-- 
+<input type="password" placeholder="Password" id="password" required>
+<input type="password" placeholder="Confirm Password" id="confirm_password" required> -->
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-5"><i class="fa fa-lock"></i>
+                                    <label for="id_password" class="col-form-label  requiredField" ">
+                                    Password<span class=" asteriskField">*</span> </label>
+                                    <input type="password" name="password" class="textinput textInput form-control"
+                                        required id="id_password">
+                                </div>
+                                <div class="col-md-7"><i class="fa fa-lock"></i>
+                                    <label for="id_confirm_password" class="col-form-label" style="margin-left: 1px;">
+                                        Confirm password<span class=" asteriskField">*</span></label>
+                                    <input type="password" name="confirm_password"
+                                        class="textinput textInput form-control" required id="id_confirm_password">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6"><i class="fa fa-question-circle-o"></i>
+                                    <label for="id_security_question" class="col-form-label" style="margin-left: 1px;">
+                                        Security question</label>
+                                    <select name="security_question" class="select form-control"
+                                        id="id_security_question">
+                                        <option value="" selected>---------</option>
+                                        <option value="WBD">What is your birthdate?</option>
+                                        <option value="OPN">What is your Old Phone Number?</option>
+                                        <option value="YPN">What is your Petname?</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_enter_answer" class="col-form-label ">
+                                        Enter answer
+                                    </label>
+                                    <input type="text" name="enter_answer" maxlength="120"
+                                        class="textinput textInput form-control" id="id_enter_answer">
+                                </div>
+                            </div><br>
+                            <div class="col-md-6">
+                                <i class="fa fa-venus-mars"></i><label for="id_gender"
+                                    class="col-form-label ">Gender</label>
+                                <div name="gender" id="id_gender">
+                                    <!-- <input type="radio" value="gender" name="-----"> -->
+                                    <input type="radio" value="gender" name="Male">Male
+                                    <input type="radio" value="gender" name="FeMale">Female
+                                    <!-- <option value="" selected>---------</option>
+                                    <option value="M">Male</option>
+                                    <option value="F">FeMale</option> -->
+                                </div>
+                            </div>
+                            <input class='btn btn-outline-warning btn-sm' id='btnPrimary' type="submit"
+                                value='submit' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <style>
+        body {
+            background-image: url('https://techbeacon.scdn7.secure.raxcdn.com/sites/default/files/styles/article_hero_image/public/field/image/coding-programming-key-test-automation-engineer-career_0.jpg?itok=-CR3XCQ2');
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            letter-spacing: 2px;
+            background-size: cover;
+            margin-top: 60px;
+        }
+
+        hr {
+            background-color: azure;
+            margin-right: 10%;
+        }
+
+        #btnPrimary {
+            font-family: sans-serif;
+            font-variant: small-caps;
+            float: right;
+            margin-right: 9%;
+            background-color: rgba(11, 224, 234, 0);
+            margin-top: -5%;
+            width: 20%;
+            font-size: 16px;
+        }
+
+        a {
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #f8f9fa;
+            background-color: rgba(137, 253, 244, 0.808);
+            font-weight: bold;
+            color: #383d41;
+        }
+
+        label {
+            font-size: 0.8rem !important;
+            color: violet;
+        }
+
+        .row {
+            width: 95%;
+        }
+
+        .register-left {
+            text-align: center;
+            margin-top: -9%;
+            color: #fff;
+            margin-top: 5%;
+        }
+
+        .register-left img {
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 25%;
+            animation: mover 0.7s infinite alternate;
+        }
+
+        @keyframes mover {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-70px);
+            }
+
+            h3 {
+                font-family: Gill Sans Extrabold, sans-serif;
+                font-style: oblique;
+                font-variant: small-caps
+            }
+        }
+
+        .fa {
+            color: thistle;
+            margin-top: 5.5px;
+        }
+
+        #id_gender {
+            margin-left: -3%;
+            color: aliceblue;
+            font-family: auto;
+        }
+    </style>
+    <!-- <script>
+        var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword() {
+            if (password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+            } else {
+                confirm_password.setCustomValidity('');
+            }
+        }
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script> -->
+    <script>
+        // Function to check Whether both passwords is same or not.
+        function checkPassword(form) {
+            var password = form.password.value;
+            var confirm_password = form.confirm_password.value;
+
+            // If Not same return False.
+            if (password != confirm_password) {
+                alert("\nPassword did not match: Please try again...")
+                return false;
+            }
+
+            // If same return True.
+            else {
+                alert("Successfully Created Your Account \n\n You are redirected to Login Page")
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>

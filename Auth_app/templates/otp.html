@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR97VqNzZARoJCFV07G6cX2mxq4WyVBSZ3E644ZGzQ_XYE8m7Bv">
+    <title>OTP</title>
+</head>
+<body>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h5>Enter Your OTP Sent to Registered Email</h5><br>
+        <label>OTP</label>&nbsp<input type="text" name="otp"><br><br>
+        <button class="btn btn-info btn-sm">Reset</button>
+    </form>
+    <style>
+        body{
+            background-image: url('https://ttt.studio/wp-content/uploads/2019/05/otp_banner_4@2x.jpg?x12786');
+            background-size: cover;
+            padding: 16%;
+        }
+        small{
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            color: gray;
+        }
+        h5{
+            color: rgb(95, 16, 82)
+        }
+        button{
+            width: 10%
+        }
+        input{
+            border-radius: 12%;
+        }
+        </style>
+</body>
+</html>
