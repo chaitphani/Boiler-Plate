@@ -14,10 +14,12 @@
 
 <body>
     {% if messages %}
-    <ul class="messages">
+    <th class="messages"></th>
+    <div class="alert alert-danger">
         {% for message in messages %}
-        <li class="{{ message.tags }}" style="color: red">{{ message }}</li>
+        <td class="{{ message.tags }}" style="text-align: center;">{{ message }}</td>
         {% endfor %}
+    </div>
     </ul>
     {% endif %}
     <form method="POST">
@@ -126,6 +128,16 @@
         border-radius: 40px;
         background: transparent;
         transition: all 0.3s ease 0s;
+    }
+
+    .alert {
+        width: 47%;
+        color: #480348;
+        margin-left: 4%;
+        border-color: #f5c6cb00;
+        border-radius: 1.25rem;
+        padding-top: 1%;
+        margin-top: -3%;
     }
 </style>
 

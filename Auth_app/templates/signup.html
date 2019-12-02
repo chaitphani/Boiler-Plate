@@ -18,13 +18,15 @@
 
 <body>
     {% if messages %}
-    <ul class="messages">
+    <th class="messages"></th>
+    <div class="alert alert-success">
         {% for message in messages %}
-        <li class="{{ message.tags }}" style="color: red">{{ message }}</li>
+        <td class="{{ message.tags }}" style="text-align: center;">{{ message }}</td>
         {% endfor %}
+    </div>
     </ul>
     {% endif %}
-    <form method="POST" onSubmit = "return checkPassword(this)">
+    <form method="POST" onSubmit="return checkPassword(this)">
         {% csrf_token %}
         <!-- {{form|crispy}}
         <input type="submit" name='submit' value="submit"> -->
@@ -74,9 +76,6 @@
                                         id="id_mobile">
                                 </div>
                             </div>
-                            <!-- 
-<input type="password" placeholder="Password" id="password" required>
-<input type="password" placeholder="Confirm Password" id="confirm_password" required> -->
                             <hr>
                             <div class="row">
                                 <div class="col-md-5"><i class="fa fa-lock"></i>
@@ -117,12 +116,8 @@
                                 <i class="fa fa-venus-mars"></i><label for="id_gender"
                                     class="col-form-label ">Gender</label>
                                 <div name="gender" id="id_gender">
-                                    <!-- <input type="radio" value="gender" name="-----"> -->
                                     <input type="radio" value="gender" name="Male">Male
                                     <input type="radio" value="gender" name="FeMale">Female
-                                    <!-- <option value="" selected>---------</option>
-                                    <option value="M">Male</option>
-                                    <option value="F">FeMale</option> -->
                                 </div>
                             </div>
                             <input class='btn btn-outline-warning btn-sm' id='btnPrimary' type="submit"
@@ -216,39 +211,17 @@
             color: aliceblue;
             font-family: auto;
         }
+
+        .alert {
+            width: 46%;
+            color: #480348;
+            margin-left: 34%;
+            border-color: #f5c6cb00;
+            border-radius: 1.25rem;
+            padding-top: 1%;
+            margin-top: -4%;
+        }
     </style>
-    <!-- <script>
-        var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
-
-        function validatePassword() {
-            if (password.value != confirm_password.value) {
-                confirm_password.setCustomValidity("Passwords Don't Match");
-            } else {
-                confirm_password.setCustomValidity('');
-            }
-        }
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;
-    </script> -->
-    <script>
-        // Function to check Whether both passwords is same or not.
-        function checkPassword(form) {
-            var password = form.password.value;
-            var confirm_password = form.confirm_password.value;
-
-            // If Not same return False.
-            if (password != confirm_password) {
-                alert("\nPassword did not match: Please try again...")
-                return false;
-            }
-
-            // If same return True.
-            else {
-                alert("Successfully Created Your Account \n\n You are redirected to Login Page")
-                return true;
-            }
-        }
-    </script>
 </body>
 
 </html>

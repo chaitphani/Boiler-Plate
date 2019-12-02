@@ -24,3 +24,9 @@ class Regmodel(models.Model):
 
     def __str__(self):
         return self.usrname
+
+    def get_absolute_url(self):
+        return reverse('DetailView', args=(self.pk,))
+
+    def get_update_url(self):
+        return reverse('updation', args=(self.pk,))

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Boiler Index |</title>
+    <title>Boiler Index | Chaitu</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="static/index/assets/images/department1.jpg" type="image/x-icon">
@@ -14,14 +14,23 @@
     <!-- CSS Files -->
     <link rel="stylesheet" href="static/index/assets/css/animate-3.7.0.css">
     <link rel="stylesheet" href="static/index/assets/css/font-awesome-4.7.0.min.css">
-    <link rel="stylesheet" href="static/index/assets/css/bootstrap-4.1.3.min.css">
     <link rel="stylesheet" href="static/index/assets/css/owl-carousel.min.css">
     <link rel="stylesheet" href="static/index/assets/css/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="static/index/assets/css/bootstrap-4.1.3.min.css">
     <link rel="stylesheet" href="static/index/assets/css/linearicons.css">
     <link rel="stylesheet" href="static/index/assets/css/style.css">
 </head>
 
-<body>
+<body id="page-top">
+    {% if messages %}
+    <th class="messages"></th>
+    <div class="alert alert-success">
+        {% for message in messages %}
+        <td class="{{ message.tags }}" style="text-align: center;">{{ message }}</td>
+        {% endfor %}
+    </div>
+    </ul>
+    {% endif %}
     <!-- Header Area Starts -->
     <header class="header-area">
         <div class="header-top">
@@ -47,11 +56,6 @@
             <div id="header" id="home">
                 <div class="container">
                     <div class="row align-items-center justify-content-between d-flex">
-                        <div id="logo">
-                            <a href="/"><img
-                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTSq6qnQpBBMX9FIFTH3VpFNrCi4XSqFiPBBeXh3ky9ebVkVizK"
-                                    width='200px' /></a>
-                        </div>
                         <nav id="nav-menu-container">
                             <ul class="nav-menu">
                                 <li class="menu-active"><a href="#">Home</a></li>
@@ -79,13 +83,15 @@
                     <h1>Leading the way in medical excellence</h1>
                     <p>Earth greater grass for good. Place for divide evening yielding them that. Creeping beginning
                         over gathered brought.</p>
-                    <a href="#" class="template-btn mt-3">take appointment</a>
+                    <a href="#appointment_id" class="template-btn mt-3">take appointment</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- Banner Area End -->
-
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
     <!-- Feature Area Starts -->
     <section class="feature-area section-padding">
         <div class="container">
@@ -133,7 +139,7 @@
             <div class="row">
                 <div class="col-lg-5 align-self-center">
                     <div class="welcome-img">
-                        <img src="static/index/assets/images/welcome.png" alt="">
+                        <img src="static/index/assets/images/welcome.png" alt="" style="z-index: 0;">
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -164,11 +170,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="z-index: 0;">
                     <div class="department-slider owl-carousel">
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="static/index/assets/images/department1.jpg" alt="" class="img-fluid">
+                                <img src="static/index/assets/images/department1.jpg" alt="">
                                 <div class="hover-state">
                                     <a href="#"><i class="fa fa-stethoscope"></i></a>
                                 </div>
@@ -181,7 +187,7 @@
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="static/index/assets/images/department2.jpg" alt="" class="img-fluid">
+                                <img src="static/index/assets/images/department2.jpg" alt="" style="z-index: 0;">
                                 <div class="hover-state">
                                     <a href="#"><i class="fa fa-stethoscope"></i></a>
                                 </div>
@@ -194,7 +200,7 @@
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="static/index/assets/images/department3.jpg" alt="" class="img-fluid">
+                                <img src="static/index/assets/images/department3.jpg" alt="" style="z-index: 0;">
                                 <div class="hover-state">
                                     <a href="#"><i class="fa fa-stethoscope"></i></a>
                                 </div>
@@ -207,7 +213,7 @@
                         </div>
                         <div class="single-slide">
                             <div class="slide-img">
-                                <img src="static/index/assets/images/department1.jpg" alt="" class="img-fluid">
+                                <img src="static/index/assets/images/department1.jpg" alt="" style="z-index: 0;">
                                 <div class="hover-state">
                                     <a href="#"><i class="fa fa-stethoscope"></i></a>
                                 </div>
@@ -242,21 +248,27 @@
                     <div class="single-patient mb-4">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTXpccbfUBELYM5MjeSa25kzcemWbDij1Cn-fqKjBue_cisgTVO"
                             alt="">
-                        <h3>Mounika</h3>
-                        <h5>kidney specialist</h5>
-                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
-                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
+                        <h3>Mounica</h3>
+                        <h5>Health Seeker</h5>
+                        <p class="pt-3">hindustan times reported and printed a horrifying news. That dr Sanjeev GUPTA
+                            owner of astha hospital , Krishna nagar , Ludhiana was taking money from below poverty line
+                            patients and also from government under the scheme -Bhagat Puran singh Bima.
+                            He was forced to give money back when Mla Simarjeet Bains singh ji intervened and called the
+                            media.</p>
                     </div>
                     <div class="single-patient">
                         <img src="https://img.medscapestatic.com/thumbnail_library/dt_140605_serious_male_doctor_hospital_800x600.jpg"
                             alt="">
-                        <h3>Gireesh</h3>
-                        <h5>cardiology specialist</h5>
-                        <p class="pt-3">Elementum libero hac leo integer. Risus hac road parturient feugiat. Litora
-                            cursus hendrerit bib elit Tempus inceptos posuere metus.</p>
+                        <h3>Harish</h3>
+                        <h5>Health Seeker</h5>
+                        <p class="pt-3">We do, of course hope that you were satisfied with the service and attention we
+                            gave you here at Pinehill. If we have, in some way, fallen short of your expectations, we do
+                            want to hear from you.
+                            Please do speak to us when you are in Pinehill and we will do everything we can to help you.
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 align-self-center">
+                <div class="col-lg-5 offset-lg-1 align-self-center" id='appointment_id' style="z-index: 0;">
                     <div class="appointment-form text-center mt-5 mt-lg-0">
                         <h3 class="mb-5">appointment now</h3>
                         <form action="#">
@@ -306,8 +318,8 @@
                         </div>
                         <div class="content-area">
                             <div class="doctor-name text-center">
-                                <h3>ethel davis</h3>
-                                <h6>sr. faculty data science</h6>
+                                <h3>Dharma CEO</h3>
+                                <h6>Sr.Dermatologist</h6>
                             </div>
                             <div class="doctor-text text-center">
                                 <p>If you are looking at blank cassettes on the web, you may be very confused at the.
@@ -329,8 +341,8 @@
                         </div>
                         <div class="content-area">
                             <div class="doctor-name text-center">
-                                <h3>dand mories</h3>
-                                <h6>sr. faculty plastic surgery</h6>
+                                <h3>Suresh</h3>
+                                <h6>Neurologist</h6>
                             </div>
                             <div class="doctor-text text-center">
                                 <p>If you are looking at blank cassettes on the web, you may be very confused at the.
@@ -352,8 +364,8 @@
                         </div>
                         <div class="content-area">
                             <div class="doctor-name text-center">
-                                <h3>align board</h3>
-                                <h6>sr. faculty data science</h6>
+                                <h3>Shalini Kasturi</h3>
+                                <h6>Sr. Pathologist</h6>
                             </div>
                             <div class="doctor-text text-center">
                                 <p>If you are looking at blank cassettes on the web, you may be very confused at the.
@@ -375,8 +387,8 @@
                         </div>
                         <div class="content-area">
                             <div class="doctor-name text-center">
-                                <h3>jeson limit</h3>
-                                <h6>sr. faculty plastic surgery</h6>
+                                <h3>Sai Angular</h3>
+                                <h6>Sr.Psychiatry</h6>
                             </div>
                             <div class="doctor-text text-center">
                                 <p>If you are looking at blank cassettes on the web, you may be very confused at the.
@@ -506,7 +518,7 @@
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | This
                             template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                href="https://google.co.in" target="_blank">Chaitu</a>
+                                href="https://google.co.in" target="_blank" style="color: #1e8bfd;">Chaitu</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </span>
                     </div>
@@ -570,6 +582,19 @@
         opacity: 1;
         right: 0;
     }
+
+    .scroll-to-top {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        text-align: center;
+        color: #fff;
+        background: rgba(90, 92, 105, .5);
+        line-height: 46px;
+    }
 </style>
+
 
 </html>

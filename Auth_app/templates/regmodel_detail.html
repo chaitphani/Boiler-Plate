@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="" style="margin-left: 300px;">
+    <main class="page-body">
+        <div class="row">
+            <div class="col s12 page-title-div">
+                <h1 class="header">Users</h1>
+                <ol class="breadcrumbs">
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li class="active"><a href="{% url 'UserListView' %}">User Listing</a></li>
+                </ol>
+            </div>
+        </div>
+        <section class="section">
+            <div class="row ">
+                <div class="col s12">
+                    <div class="card card-form">
+                        <div class="card-content">
+                            <a class="btn btn-primary" href="{% url 'UserCreateView' %}">ADD User</a>
+                            <table class="table">
+                                <tr>
+                                    <th>First Name</th>
+                                    <td>{{ object.first_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Last Name</th>
+                                    <td>{{ object.last_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>User Name</th>
+                                    <td>{{ object.usrname }}</td>
+                                </tr>
+                                <tr>
+                                    <th>User Email</th>
+                                    <td>{{ object.email}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Mobile No.</th>
+                                    <td>{{ object.mobile }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>{{ object.gender }}</td>
+                                </tr>
+                            </table>
+                            <a class="btn btn-primary" href="{{object.get_update_url}}">Edit User</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+    {% endblock %}
